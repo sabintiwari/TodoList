@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to lists_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New List item
+  <% end %>
+  <h1>List Items</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @list_items) do |list_item| %>
+          <td><%= list_item.name %></td>
+          <td><%= list_item.description %></td>
+          <td><%= list_item.created_at %></td>
+          <td><%= link_to 'Show', list_item %></td>
+          <td><%= link_to 'Edit', edit_list_item_path(list_item) %></td>
+          <td><%= link_to 'Delete', list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

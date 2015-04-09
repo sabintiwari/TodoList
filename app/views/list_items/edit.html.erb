@@ -1,0 +1,17 @@
+<div class="page-header">
+	<% @search = ListItem.find(params[:id]) %>
+  <% @search = List.find(@search.list_id) %>
+  <%= link_to list_items_id_path(@search), :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @list_item, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing list_item</h1>
+</div>
+
+<%= render partial: 'form' , locals: {list_id: "no_value"} %>
+
+

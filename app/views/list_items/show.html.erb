@@ -1,0 +1,22 @@
+<div class="page-header">
+  <% @search = ListItem.find(params[:id]) %>
+  <% @search = List.find(@search.list_id) %>
+  <%= link_to list_items_id_path(@search), :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_list_item_id_path(@list_item), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1><%= @list_item.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @list_item.name %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @list_item.description %></dd>
+
+</dl>
